@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>Mac 终端命令 | HuaLei</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="爱好电影、音乐和书籍，尤其喜爱许巍、李健及王小波。擅长Java，JavaScript，喜欢用NodeJs编写一些有趣的应用。关注互联网、科技、敏捷开发以及JavaNIO。">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Mac 终端命令 | HuaLei">
+    <meta name="twitter:description" content="爱好电影、音乐和书籍，尤其喜爱许巍、李健及王小波。擅长Java，JavaScript，喜欢用NodeJs编写一些有趣的应用。关注互联网、科技、敏捷开发以及JavaNIO。">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Mac 终端命令 | HuaLei">
+    <meta property="og:description" content="爱好电影、音乐和书籍，尤其喜爱许巍、李健及王小波。擅长Java，JavaScript，喜欢用NodeJs编写一些有趣的应用。关注互联网、科技、敏捷开发以及JavaNIO。">
+
+    
+    <meta name="author" content="hualei">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/favicon.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="HuaLei" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://hualeihl.com/2017/02/25/Mac终端命令/"/>
+
+    
+
+    <!--<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/zenburn.min.css">-->
+    <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/xcode.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+
+</head>
+
+<body class="home-template no-js">
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 HuaLei 的主页"><img src="/images/logo.jpg" width="80" alt="HuaLei logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for HuaLei">HuaLei</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">大道至简</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description"></p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
+                <li class="navigation__item"><a href="/projects" title="访问归档" class="projects-button">归档</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/ThinkerH" title="查看我的GitHub主页" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2017-02-25T14:59:03.000Z" class="post-list__meta--date date">2017-02-25</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/笔记/">笔记</a>
+</span>
+    </div>
+    <h1 class="post-title">Mac 终端命令</h1>
+  </header>
+
+  <section class="post">
+    <p>OSX 的文件系统<br>OSX 采用的Unix文件系统，所有文件都挂在跟目录 / 下面，所以不在要有Windows 下的盘符概念。<br>你在桌面上看到的硬盘都挂在 /Volumes 下。<br>比如接上个叫做 USBHD的移动硬盘，桌面上会显示出一个硬盘图标，它实际在哪里呢？<br>在终端里执行 ls /Volumes/USBHD, 看看显示出的是不是这个移动硬盘的内容。<br>根目录位置是 / 核心 Mach_kernel 就在这里，<br>驱动所在位置 /Systme/Library/Extensions<br>用户文件夹位置 /User/用户名<br>桌面的位置 /User/用户名/Desktop<br>文件通配符为星号 *<br>注意：在 Unix系统中是区别大小写字符的，A.txt 不等于 a.txt。<br>根目录标志 / 不是可有可无，cd /System 表示转到跟目录下的System中，而cd System 表示转到当前目录下的 System中 </p>
+<hr>
+<p>如何进入命令行操作模式<br>再图形界面下，用finder 打开 应用程序 》实用程序》终端<br>如果连图形界面都进不去了（比如安错了显示驱动），开机时按 F8，用－s参数启动，然后输入命令 mount -uw / </p>
+<p>获得权限<br>为了防止误操作破坏系统，再用户状态下时没有权限操作系统重要文件的，所以先要取得root权限<br>sudo －s<br>然后输入密码，输入密码时没有任何回显，连星号都没有，只管输完回车就行了。 </p>
+<hr>
+<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><p><strong>列出文件</strong><br><code>ls 参数 目录名</code><br>例: 想看看跟目录下有什么，<br>ls /<br>想看看驱动目录下有什么，<br>ls /System/Library/Extensions<br><em>参数 -w 显示中文，-l 详细信息， -a 包括隐藏文件</em></p>
+<p><strong>转换目录</strong><br><code>cd</code><br>例：想到驱动目录下溜达一圈<br>cd /System/Library/Extensions </p>
+<p><strong>建立新目录</strong><br><code>mkdir 目录名</code><br>例：在驱动目录下建一个备份目录 backup<br>mkdir /System/Library/Extensions/backup<br>在桌面上建一个备份目录 backup<br>mkdir /User/用户名/Desktop/backup </p>
+<p><strong>拷贝文件</strong><br><code>cp 参数 源文件 目标文件</code><br>例：想把桌面的Natit.kext 拷贝到驱动目录中<br>cp -R /User/用户名/Desktop/Natit.kext /System/Library/Extensions<br><em>参数R表示对目录进行递归操作，kext在图形界面下看起来是个文件，实际上是个文件夹。<br>把驱动目录下的所有文件备份到桌面backup</em><br>cp -R /System/Library/Extensions/* /User/用户名/Desktop/backup </p>
+<p><strong>删除文件</strong><br><code>rm 参数 文件</code><br>例：想删除驱动的缓存<br>rm -rf /System/Library/Extensions.kextcache<br>rm -rf /System/Library/Extensions.mkext<br><em>参数－rf 表示递归和强制，千万要小心使用，如果执行了 rm -rf / 你的系统就全没了</em></p>
+<p><strong>移动文件</strong><br><code>mv 文件</code><br>例：想把AppleHDA.Kext 移到桌面<br>mv /System/Library/Extensions/AppleHDA.kext /User/用户名/Desktop<br>想把AppleHDA.Kext 移到备份目录中<br>mv /System/Library/Extensions/AppleHDA.kext /System/Library/Extensions/backup </p>
+<p><strong>更改文件权限</strong><br><code>chmod 参数 权限 文件</code><br>例：把驱动目录下所有文件设定到root读写，其他用户只读<br>chmod -R 755 /System/Library/Extensions<br><em>参数R 表示递归，755表示各用户的权限</em></p>
+<p><strong>更改文件属主</strong><br><code>chown 参数 用户:组 文件</code><br>例：把驱动目录下的所有文件属主改成根用户<br>chown -R root:wheel /System/Library/Extensions<br><em>参数R 表示递归操作</em></p>
+<p><strong>修复整个系统中文件的权限</strong><br><code>diskutil repairpermissions /</code><br>严格的说这不是一个unix 命令，而是osx一个软件，记得修改或添加的驱动就执行一次。</p>
+<p><strong>文本编辑</strong><br><code>nano 文件名</code><br>例：编辑natit Info.plist<br>nano /System/Library/Extensions/Natit.kext/Info.plist<br>编辑完成后 用 Ctrl ＋O 存盘，Ctrl＋X 退出<br>另一个文本编辑软件是 vi，操作有些古怪，熟了是非常好用的，而且在所有类Unix系统中都它，走遍天下都不怕了。 </p>
+<p><strong>运行脚本命令</strong><br><code>sh 脚本文件名</code><br>例 修改驱动后所有需要的操作存成一个脚本，以后修改了驱动后只要运行一次这个脚本就可以了，方便吧 </p>
+<hr>
+<ol>
+<li>终端中运行nano /clean </li>
+<li>把下列代码粘贴到 nano 中<br>rm -rf /System/Library/Extensions.kextcache<br>rm -rf /System/Library/Extensions.mkext<br>chown -R root:wheel /System/Library/Extensions<br>chmod -R 755 /System/Library/Extensions<br>diskutil repairpermissions /<br>kextcache -k /System/Library/Extensions/ </li>
+<li>Ctrl ＋O 存盘，Ctrl＋X 退出 </li>
+<li>以后只要动了驱动，就在终端中运行一次 sh /clean </li>
+</ol>
+<hr>
+<p><strong>小技巧</strong></p>
+<blockquote>
+<p>用 Tab 键自动补齐命令<br>比如想到 /System 目录中去，输入 cd /Sy 然后按一下Tab 键，命令就会自动补齐成 cd /System </p>
+</blockquote>
+<hr>
+<p>&gt;<br>操作带名字中带有空格的文件和目录<br>空格在命令中写成 空格， 比如要进入 My Documents，命令为 cd My Documents </p>
+<hr>
+<p>&gt;<br>查看命令的详细帮助<br>man 命令名<br>比如要看看 ls 命令的详细用法，执行 man ls </p>
+<hr>
+<p><strong>典型操作流程</strong><br>(假设已经制作好清理脚本，记得每次操作前 sudo -s 获得系统权限)<br>假设下载了一个显卡驱动 Natit.zip，在桌面解压得到了一个Natit.kext，该怎么做呢？<br>为了保险起见，先把所有驱动备份了再说<br>mkdir /User/用户名/Desktop/backup 在桌面上建立备份文件夹<br>cp -R /System/Library/Extensions/* /User/用户名/Desktop/backup 备份驱动文件<br>现在可以安心安装了<br>cp -R /User/用户名/Desktop/Natit.kext /System/Library/Extensions 把它 拷贝到系统驱动目录位置<br>sh /clean 执行清理脚本，操作完成<br>重新开机失败，进不去桌面了，发现不应该安这个驱动，怎么恢复呢？<br>开机按F8，用 -s 参数启动<br>执行 mount -uw /<br>rm -rf /User/用户名/Desktop/Natit.kext 删除这个驱动<br>sh /clean 执行清理脚本，操作完成<br>重启，回到原先状态了，不死心啊，没有特效怎么行呢，又听说需要修改 Natit的 Info. plist 文件才行，好，再来<br>cp -R /User/用户名/Desktop/Natit.kext /System/Library/Extensions 把它 拷贝到系统驱动目录位置<br>nano /System/Library/Extensions/Natit.kext/Info.plist<br>编辑完成后 用 Ctrl ＋O 存盘，Ctrl＋X 退出<br>sh /clean 执行清理脚本，操作完成<br>重启，这回对了，显卡特效都有了，该弄声卡了，天知道会出什么事，得把现有成果保护好。<br>mkdir /User/用户名/Desktop/gooddrivers 专为有效驱动建个目录<br>cp -R /System/Library/Extensions/Natit.kext /User/用户名/Desktop/gooddrivers 备份<br>这个声卡要求把 AppleHDA.kext 删除和编辑 AppleAzaliaAudio.kext中的Info.plist 文件，谁知道以后会不会还用AppleHDA呢，不如暂时禁用吧。<br>mkdir /System/Library/Extensions/disabled 建立个禁用目录<br>mv /System/Library/Extensions/AppleHDA.kext /System/Library/Extensions/disabled 移动过去<br>nano /System/Library/Extensions/Natit.kext/AppleAzaliaAudio.kext/Info.plist<br>编辑完成后 用 Ctrl ＋O 存盘，Ctrl＋X 退出<br>sh /clean 执行清理脚本，操作完成<br>成功了，也把修改好的驱动备份一下把<br>复制内容到剪贴板代码: </p>
+<hr>
+<h2 id="以下是unix的命令行-供参考"><a href="#以下是unix的命令行-供参考" class="headerlink" title="以下是unix的命令行,供参考"></a>以下是unix的命令行,供参考</h2><p><strong>目录操作</strong><br><code>mkdir //创建一个目录</code><br>mkdir dirname </p>
+<p><code>rmdir //删除一个目录</code><br>rmdir dirname </p>
+<p><code>mvdir //移动或重命名一个目录</code><br>mvdir dir1 dir2 </p>
+<p><code>cd //改变当前目录</code><br>cd dirname </p>
+<p><code>pwd //显示当前目录的路径名</code><br>pwd </p>
+<p><code>ls //显示当前目录的内容</code><br>ls -la </p>
+<p><code>dircmp //比较两个目录的内容</code><br>dircmp dir1 dir2 </p>
+<p><strong>文件操作</strong><br><code>cat //显示或连接文件</code><br>cat filename </p>
+<p><code>pg //分页格式化显示文件内容</code><br>pg filename </p>
+<p><code>more //分屏显示文件内容</code><br>more filename </p>
+<p><code>od //显示非文本文件的内容</code><br>od -c filename </p>
+<p><code>cp //复制文件或目录</code><br>cp file1 file2 </p>
+<p><code>rm //删除文件或目录</code><br>rm filename </p>
+<p><code>mv //改变文件名或所在目录</code><br>mv file1 file2 </p>
+<p><code>ln //联接文件</code><br>ln -s file1 file2 </p>
+<p><code>find //使用匹配表达式查找文件</code><br>find . -name “*.c” -print </p>
+<p><code>file //显示文件类型</code><br>file filename </p>
+<p><strong>选择操作</strong><br><code>head //显示文件的最初几行</code><br>head -20 filename </p>
+<p><code>tail //显示文件的最后几行</code><br>tail -15 filename </p>
+<p><code>cut //显示文件每行中的某些域</code><br>cut -f1,7 -d: /etc/passwd </p>
+<p><code>colrm //从标准输入中删除若干列</code><br>colrm 8 20 file2 </p>
+<p><code>paste //横向连接文件</code><br>paste file1 file2 </p>
+<p><code>diff //比较并显示两个文件的差异</code><br>diff file1 file2 </p>
+<p><code>sed //非交互方式流编辑器</code><br>sed “s/red/green/g” filename </p>
+<p><code>grep //在文件中按模式查找</code><br>grep “^[a-zA-Z]” filename </p>
+<p><code>awk //在文件中查找并处理模式</code><br>awk ‘{print $1 $1}’ filename</p>
+<p><code>sort //排序或归并文件</code><br>sort -d -f -u file1 </p>
+<p><code>uniq //去掉文件中的重复行</code><br>uniq file1 file2 </p>
+<p><code>comm //显示两有序文件的公共和非公共行</code><br>comm file1 file2 </p>
+<p><code>wc //统计文件的字符数、词数和行数</code><br>wc filename </p>
+<p><code>nl //给文件加上行号</code><br>nl file1 &gt;file2 </p>
+<p><strong>安全操作</strong><br><code>passwd //修改用户密码</code><br>passwd </p>
+<p><code>chmod //改变文件或目录的权限</code><br>chmod ug+x filename </p>
+<p><code>umask //定义创建文件的权限掩码</code><br>umask 027 </p>
+<p><code>chown //改变文件或目录的属主</code><br>chown newowner filename </p>
+<p><code>chgrp //改变文件或目录的所属组</code><br>chgrp staff filename </p>
+<p><code>xlock //给终端上锁</code><br>xlock -remote </p>
+<p><strong>编程操作</strong><br><code>make //维护可执行程序的最新版本</code><br>make </p>
+<p><code>touch //更新文件的访问和修改时间</code><br>touch -m 05202400 filename </p>
+<p><code>dbx //命令行界面调试工具</code><br>dbx a.out </p>
+<p><code>xde //图形用户界面调试工具</code><br>xde a.out </p>
+<p><strong>进程操作</strong><br><code>ps //显示进程当前状态</code><br>ps u </p>
+<p><code>kill //终止进程</code><br>kill -9 30142 </p>
+<p><code>nice //改变待执行命令的优先级</code><br>nice cc -c *.c </p>
+<p><code>renice //改变已运行进程的优先级</code><br>renice +20 32768 </p>
+<p><strong>时间操作</strong><br><code>date //显示系统的当前日期和时间</code><br>date </p>
+<p><code>cal //显示日历</code><br>cal 8 1996 </p>
+<p><code>time //统计程序的执行时间</code><br>time a.out </p>
+<p><strong>网络与通信操作</strong><br><code>telnet //远程登录</code><br>telnet hpc.sp.net.edu.cn</p>
+<p><code>rlogin //远程登录</code><br>rlogin hostname -l username</p>
+<p><code>rsh //在远程主机执行指定命令</code><br>rsh f01n03 date </p>
+<p><code>ftp //在本地主机与远程主机之间传输文件</code><br>ftp ftp.sp.net.edu.cn </p>
+<p><code>rcp //在本地主机与远程主机 之间复制文件</code><br>rcp file1 host1:file2 </p>
+<p><code>ping //给一个网络主机发送 回应请求</code><br>ping hpc.sp.net.edu.cn </p>
+<p><code>mail //阅读和发送电子邮件</code><br>mail </p>
+<p><code>write //给另一用户发送报文</code><br>write username pts/1 </p>
+<p><code>mesg //允许或拒绝接收报文</code><br>mesg n </p>
+<p><strong>Korn Shell 命令</strong><br><code>history //列出最近执行过的 几条命令及编号</code><br>history </p>
+<p><code>r //重复执行最近执行过的 某条命令</code><br>r -2 </p>
+<p><code>alias //给某个命令定义别名</code><br>alias del=rm -i </p>
+<p><code>unalias //取消对某个别名的定义</code><br>unalias del </p>
+<p><strong>其它命令</strong><br><code>uname //显示操作系统的有关信息</code><br>uname -a </p>
+<p><code>clear //清除屏幕或窗口内容</code><br>clear </p>
+<p><code>env //显示当前所有设置过的环境变量</code><br>env </p>
+<p><code>who //列出当前登录的所有用户</code><br>who </p>
+<p><code>whoami //显示当前正进行操作的用户名</code><br>whoami </p>
+<p><code>tty //显示终端或伪终端的名称</code><br>tty </p>
+<p><code>stty //显示或重置控制键定义</code><br>stty -a </p>
+<p><code>du //查询磁盘使用情况</code><br>du -k subdir </p>
+<p><code>df //显示文件系统的总空间和可用空间</code><br>df /tmp </p>
+<p><code>w //显示当前系统活动的总信息</code></p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">最近的文章</span>
+                <h2 class="post-list__post-title post-title"><a href="/2017/02/25/iOS-错误解决/" title="iOS duplicate symbol -错误解决">iOS duplicate symbol -错误解决</a></h2>
+                <p class="excerpt">
+                
+                报错： “duplicate symbol _OBJCCLASS$_className in: “这几天公司iOS移动开发用到了定位功能，要及=集成百度地图，在集成的过程中报了如题的冲突错误。根据经验，这种错误一般是文件类名冲突导致的，检查了几个地方，发现是导入的百度地图第三方库和工程里面原有的一个
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2017-02-25T15:02:23.000Z" class="post-list__meta--date date">2017-02-25</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/学习/">学习</a>
+</span><a class="btn-border-small" href="/2017/02/25/iOS-错误解决/">继续阅读</a></div>
+                           
+            </div>
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">更早的文章</span>
+                <h2 class="post-list__post-title post-title"><a href="/2017/02/25/hlcalendar/" title="iOS HLCalendar-日历控件">iOS HLCalendar-日历控件</a></h2>
+                <p class="excerpt">
+                
+                转载请注明出处：来自hualei的博客www.hualeihl.com
+最近用OC封装了一个日历控件，可以根据输入的月数，取出自当前月开始N个月的日期数据并展示，同时可选择日期，这里同时封装了一个日历工具类HLCalendar
+
+由于NSCalendar类很耗性能，所以我这里将它封装成了一个单例，避
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2017-02-24T16:53:00.000Z" class="post-list__meta--date date">2017-02-25</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/开发/">开发</a>
+</span><a class="btn-border-small" href="/2017/02/25/hlcalendar/">继续阅读</a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+
+<section class="post-comments">
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="http://hualeihl.com/2017/02/25/Mac终端命令/" data-title="Mac 终端命令" data-url="http://hualeihl.com/2017/02/25/Mac终端命令/"></div>
+  <!-- 多说评论框 end -->
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"hslife"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    </span>
+    <span class="footer__copyright">
+        基于 <a href="http://hexo.io">Hexo</a> 搭建，感谢 <a href="https://pages.github.com/">GitHub Pages</a> 提供免费的托管服务
+    </span>
+    <span class="footer__copyright">
+        &copy; 2017 - 本站由 <a href="/">@Longbo Ma</a> 创建,
+        使用<a href="https://github.com/lenbo-ma/hexo-theme-vno">hexo-theme-vno</a>主题,
+        修改自<a href="http://github.com/onevcat/vno" target="_blank">Vno</a>
+    </span>
+</footer>
+
+        </div>
+    </div>
+
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-42596364-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>
+</html>

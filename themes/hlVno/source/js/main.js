@@ -17,7 +17,7 @@ $(document).ready(function() {
 
   $('a.projects-button').click(function() {
 
-    window.alert("哈哈哈哈哈");
+    window.alert("搭建中");
 
   });
 

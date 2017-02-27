@@ -6014,13 +6014,12 @@ em {
 blockquote {
   margin: 1em 0;
   padding: 2em 1.25em;
-  background: #f8f8f8;
-  border: 1px solid #eee;
-  border-left: 4px solid #999;
+  border-left: 4px solid #bf1827;
   border-radius: 3px;
   font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: lighter;
   font-size: 1em;
+  background-color: #f7f7f9;
 /*text-align: center; */
 }
 blockquote p:last-child {
@@ -6535,6 +6534,23 @@ i {
 }
 *:focus {
   outline: none;
+}
+.read-more {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-top: 1.2em;
+  padding-bottom: 1em;
+  border-top: 1px solid #ddd;
+}
+.read-more-item {
+  display: inline-block;
+  vertical-align: top;
+  width: 48%;
+}
+.read-more-item-dim {
+  color: #4e97d8;
+  font-size: 0.8em;
+  line-height: 1.8em;
 }
 input[type="text"],
 input[type="password"],

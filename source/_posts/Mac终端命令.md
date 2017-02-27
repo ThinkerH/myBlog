@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mac 终端命令
+title: Mac 终端命令
 tags: 笔记
 ---
 OSX 的文件系统 

@@ -1,14 +1,16 @@
 
 ---
 layout: post
-title: "duplicate symbol _OBJC_CLASS_$_className in:"错误解决
+title: iOS duplicate symbol -错误解决
 tags: 学习
 ---
+
+## 报错： "duplicate symbol _OBJC_CLASS_$_className in: "
 
 这几天公司iOS移动开发用到了定位功能，要及=集成百度地图，在集成的过程中报了如题的冲突错误。
 根据经验，这种错误一般是文件类名冲突导致的，检查了几个地方，发现是导入的百度地图第三方库和工程里面原有的一个静态库里面的类名产生了冲突，Google了一会，了解了大致的问题原因。
 
-##原因：
+## 原因：
 
 一些第三方库里对系统库的类加了 category ，这时，就需要使用编译参数： -ObjC ，这样第三方库中对系统类作的扩展方法才能在工程中使用。但是使用 -Objc 后，会产生两个问题:
 
@@ -38,7 +40,7 @@ __duplicate symbol 的问题就不好解决了，说明第三方库中的类名�
 
 >这些类重命名，最常见的作法就是给类名加个前缀。以避免别人用你的库时，产生 duplicate symbol 的问题。
 
-##解决：
+## 解决：
 原因找到了，下面是解决办法。
 
 根据[《聊聊 "-ObjC" 的故事》](http://blog.csdn.net/crash163/article/details/52088096)这篇文章，了解了__"—ObjC"__等flag的用法和作用，由于我的问题是两个第三方库冲突，无法改类名，所以又恰好引用的百度第三方库的部分库不需要添加__"ObjC"__也可以，所有就是用__"force_load"__，后面加上要加载的库路径，编译，问题解决。

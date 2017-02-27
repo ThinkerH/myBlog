@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     
-    <title>3D动画 | HuaLei</title>
+    <title>iOS duplicate symbol -错误解决 | HuaLei</title>
     <meta name="renderer" content="webkit">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -15,11 +15,11 @@
     <meta name="description" content="爱好电影、音乐和书籍，尤其喜爱许巍、李健及王小波。擅长Java，JavaScript，喜欢用NodeJs编写一些有趣的应用。关注互联网、科技、敏捷开发以及JavaNIO。">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="3D动画 | HuaLei">
+    <meta name="twitter:title" content="iOS duplicate symbol -错误解决 | HuaLei">
     <meta name="twitter:description" content="爱好电影、音乐和书籍，尤其喜爱许巍、李健及王小波。擅长Java，JavaScript，喜欢用NodeJs编写一些有趣的应用。关注互联网、科技、敏捷开发以及JavaNIO。">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="3D动画 | HuaLei">
+    <meta property="og:title" content="iOS duplicate symbol -错误解决 | HuaLei">
     <meta property="og:description" content="爱好电影、音乐和书籍，尤其喜爱许巍、李健及王小波。擅长Java，JavaScript，喜欢用NodeJs编写一些有趣的应用。关注互联网、科技、敏捷开发以及JavaNIO。">
 
     
@@ -37,7 +37,7 @@
     <link rel="alternate" type="application/rss+xml" title="HuaLei" href="/atom.xml">
     
 
-    <link rel="canonical" href="http://hualeihl.com/2017/02/24/3D动画  OC/"/>
+    <link rel="canonical" href="http://hualeihl.com/2017/02/25/iOS-错误解决/"/>
 
     
 
@@ -140,32 +140,34 @@
 
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2017-02-24T08:16:59.000Z" class="post-list__meta--date date">2017-02-24</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/笔记/">笔记</a>
+      <time datetime="2017-02-25T15:02:23.000Z" class="post-list__meta--date date">2017-02-25</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/学习/">学习</a>
 </span>
     </div>
-    <h1 class="post-title">3D动画</h1>
+    <h1 class="post-title">iOS duplicate symbol -错误解决</h1>
   </header>
 
   <section class="post">
-    <p>CALayer层的3D动画简单学习</p>
-<p>##几种3D动画的简介</p>
-<pre><code class="Objective-C">UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-img.layer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);//3D动画，围绕x轴旋转
-img.layer.transform = CATransform3DMakeTranslation(100, 50, 0);//移动到x为100，y为50的地方
-img.layer.transform = CATransform3DMakeScale(0.5, 0.5, 0);//放大缩小
-</code></pre>
+    <h2 id="报错：-“duplicate-symbol-OBJCCLASS-className-in-“"><a href="#报错：-“duplicate-symbol-OBJCCLASS-className-in-“" class="headerlink" title="报错： “duplicate symbol _OBJCCLASS$_className in: “"></a>报错： “duplicate symbol _OBJC<em>CLASS</em>$_className in: “</h2><p>这几天公司iOS移动开发用到了定位功能，要及=集成百度地图，在集成的过程中报了如题的冲突错误。<br>根据经验，这种错误一般是文件类名冲突导致的，检查了几个地方，发现是导入的百度地图第三方库和工程里面原有的一个静态库里面的类名产生了冲突，Google了一会，了解了大致的问题原因。</p>
+<h2 id="原因："><a href="#原因：" class="headerlink" title="原因："></a>原因：</h2><p>一些第三方库里对系统库的类加了 category ，这时，就需要使用编译参数： -ObjC ，这样第三方库中对系统类作的扩展方法才能在工程中使用。但是使用 -Objc 后，会产生两个问题:</p>
 <blockquote>
-<p>在使用的时候可以给个1秒的动画效果</p>
+<p>1 、 undefined symbols </p>
+<p>2 、 duplicate symbol</p>
 </blockquote>
-<pre><code class="Objective-C">    //可以给个动画的效果
-    [UIView animateWithDuration:1
-                     animations:^{
-                         img.layer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);//3D动画，围绕x轴旋转
-                         img.layer.transform = CATransform3DMakeTranslation(100, 50, 0);//移动到x为100，y为50的地方
-                         img.layer.transform = CATransform3DMakeScale(0.5, 0.5, 0);//放大缩小
-                     }];//组合变化
-</code></pre>
+<p><strong>undefined symbols 说明工程中没有引入第三方库引用的库。</strong></p>
+<p>如果不加 -ObjC 参数，则在编译时不会出错，但运行时用到了没引用库的方法，则系统会崩溃。</p>
+<p>这个问题好解决。只要找到缺的库，引入工程就可以了。</p>
+<p><strong>duplicate symbol 的问题就不好解决了，说明第三方库中的类名和工程中的类名，或其它第三方库中的类名重名了。</strong></p>
+<p>最常见的比如 Reachability 这个类，如果第三方库中引用了，自己的工程中也引用了，就会报 duplicate symbol 。</p>
+<p>如果引用的第三方库没有源代码，就只能将自己工程中的重名类重命名了。</p>
+<blockquote>
+<p><strong>应对上面的问题，如果自己要制作一个库的话，要注意两点：</strong></p>
+<p>1 、避免对系统类加 category, 这样，别人用你的库时，不加 ObjC 参数也可以用你的库。</p>
+<p>2 、如果库中用到了其它的第三方的源代码，尤其是用的比较普遍的，如 Reachability, 一定一定要对</p>
+<p>这些类重命名，最常见的作法就是给类名加个前缀。以避免别人用你的库时，产生 duplicate symbol 的问题。</p>
+</blockquote>
+<h2 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h2><p>原因找到了，下面是解决办法。</p>
+<p>根据<a href="http://blog.csdn.net/crash163/article/details/52088096" target="_blank" rel="external">《聊聊 “-ObjC” 的故事》</a>这篇文章，了解了<strong>“—ObjC”</strong>等flag的用法和作用，由于我的问题是两个第三方库冲突，无法改类名，所以又恰好引用的百度第三方库的部分库不需要添加<strong>“ObjC”</strong>也可以，所有就是用<strong>“force_load”</strong>，后面加上要加载的库路径，编译，问题解决。</p>
 
   </section>
 
@@ -174,39 +176,20 @@ img.layer.transform = CATransform3DMakeScale(0.5, 0.5, 0);//放大缩小
 <section class="read-more">
            
     
-               
-            <div class="read-more-item">
-                <span class="read-more-item-dim">最近的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/02/24/git/" title="git">git</a></h2>
-                <p class="excerpt">
-                
-                一. 使用前准备  设置SSH Key
-  ssh-keygen -t rsa -C &amp;quot;youremail@example.com&amp;quot;
-
-
-过程需要创建密码。id_rsa 文件是私有秘钥，id_rsa.pud是公开秘钥。
-
- 查看id_rsa.pud文件内容
- cat ~/ssh/
-                &hellip;
-                </p>
-                <div class="post-list__meta"><time datetime="2017-02-24T08:41:30.000Z" class="post-list__meta--date date">2017-02-24</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
-  <a class="tag-link" href="/tags/笔记/">笔记</a>
-</span><a class="btn-border-small" href="/2017/02/24/git/">继续阅读</a></div>
-                           
-            </div>
         
         
                
             <div class="read-more-item">
                 <span class="read-more-item-dim">更早的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/2017/02/24/hello-world/" title="Hello World">Hello World</a></h2>
+                <h2 class="post-list__post-title post-title"><a href="/2017/02/25/Mac终端命令/" title="Mac 终端命令">Mac 终端命令</a></h2>
                 <p class="excerpt">
                 
-                Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+                OSX 的文件系统OSX 采用的Unix文件系统，所有文件都挂在跟目录 / 下面，所以不在要有Windows 下的盘符概念。你在桌面上看到的硬盘都挂在 /Volumes 下。比如接上个叫做 USBHD的移动硬盘，桌面上会显示出一个硬盘图标，它实际在哪里呢？在终端里执行 ls /Volumes/USB
                 &hellip;
                 </p>
-                <div class="post-list__meta"><time datetime="2017-02-24T02:46:16.000Z" class="post-list__meta--date date">2017-02-24</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;</span><a class="btn-border-small" href="/2017/02/24/hello-world/">继续阅读</a></div>
+                <div class="post-list__meta"><time datetime="2017-02-25T14:59:03.000Z" class="post-list__meta--date date">2017-02-25</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/笔记/">笔记</a>
+</span><a class="btn-border-small" href="/2017/02/25/Mac终端命令/">继续阅读</a></div>
                        
             </div>
         
@@ -219,7 +202,7 @@ img.layer.transform = CATransform3DMakeScale(0.5, 0.5, 0);//放大缩小
 
 <section class="post-comments">
   <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="http://hualeihl.com/2017/02/24/3D动画  OC/" data-title="3D动画" data-url="http://hualeihl.com/2017/02/24/3D动画  OC/"></div>
+  <div class="ds-thread" data-thread-key="http://hualeihl.com/2017/02/25/iOS-错误解决/" data-title="iOS duplicate symbol -错误解决" data-url="http://hualeihl.com/2017/02/25/iOS-错误解决/"></div>
   <!-- 多说评论框 end -->
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
   <script type="text/javascript">
